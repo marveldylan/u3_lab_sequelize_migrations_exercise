@@ -14,17 +14,15 @@ module.exports = (sequelize, DataTypes) => {
   Business.init(
     {
       businessName: {
-        field: 'name',
         type: DataTypes.STRING,
         allowNull: false
       },
       phoneNumber: {
-        field: 'phone_number',
         type: DataTypes.STRING,
         allowNull: false
       },
       rating: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
         defaultValue: 0,
         validate: {

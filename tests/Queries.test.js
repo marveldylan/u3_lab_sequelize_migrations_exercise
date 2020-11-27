@@ -26,7 +26,7 @@ describe('Should Log All Queries', () => {
     return names
   })
 
-  it('should log all business ratings', async () => {
+  it('***BONUS***: should log all business ratings', async () => {
     const ratings = await queries.getAllBRatings()
     expect(ratings).toEqual(true)
     return ratings

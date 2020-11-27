@@ -1,62 +1,85 @@
 const { Business, Location } = require('./models')
 const { Op } = require('sequelize')
-function stringify(data) {
+const stringify = function (data) {
   console.log(JSON.stringify(data, null, 4))
 }
 
 const findAllBusinesses = async () => {
-  const businesses = await Business.findAll()
-  stringify(businesses)
-}
-
-const findAllLocations = async () => {
-  const locations = await Location.findAll({
-    where: {
-      [Op.and]: [
-        { population: { [Op.gte]: 30000 } },
-        { population: { [Op.lte]: 100000 } }
-      ]
-    }
-  })
-  stringify(locations)
-}
-
-const findAllBusinessPhones = async () => {
-  const phoneNums = await Business.findAll({ attributes: ['phone_number'] })
-  stringify(phoneNums)
-}
-
-const getAllNames = async () => {
-  const bNamesWRatings = await Business.findAll({
-    attributes: ['name', 'rating']
-  })
-  stringify(bNamesWRatings)
-}
-
-const getAllBRatings = async () => {
-  const bNamesWRatings = await Business.findAll({
-    attributes: ['name', 'rating'],
-    where: {
-      rating: {
-        [Op.lt]: 32
-      }
-    }
-  })
-  stringify(bNamesWRatings)
-}
-
-async function run() {
   try {
-    await findAllBusinesses()
-    await findAllLocations()
-    await findAllBusinessPhones()
-    await getAllNames()
-    await getAllBRatings()
+    const businesses = await Business.findAll()
+    stringify(businesses)
+    return true
   } catch (error) {
     console.log(error)
-  } finally {
-    process.exit()
+    return false
   }
 }
 
-run()
+const findAllLocations = async () => {
+  try {
+    const locations = await Location.findAll({
+      where: {
+        [Op.and]: [
+          { population: { [Op.gte]: 30000 } },
+          { population: { [Op.lte]: 100000 } }
+        ]
+      }
+    })
+    stringify(locations)
+    return true
+  } catch (error) {
+    console.log(error)
+    return false
+  }
+}
+
+const findAllBusinessPhones = async () => {
+  try {
+    const phoneNums = await Business.findAll({ attributes: ['phone_number'] })
+    stringify(phoneNums)
+    return true
+  } catch (error) {
+    console.log(error)
+    return false
+  }
+}
+
+const getAllNames = async () => {
+  try {
+    const bNamesWRatings = await Business.findAll({
+      attributes: ['name', 'rating']
+    })
+    stringify(bNamesWRatings)
+    return true
+  } catch (error) {
+    console.log(error)
+    return false
+  }
+}
+
+const getAllBRatings = async () => {
+  try {
+    const bNamesWRatings = await Business.findAll({
+      attributes: ['name', 'rating'],
+      where: {
+        rating: {
+          [Op.lt]: 32
+        }
+      }
+    })
+    stringify(bNamesWRatings)
+    return true
+  } catch (error) {
+    console.log(error)
+    return false
+  }
+}
+
+module.exports = {
+  findAllBusinesses,
+  findAllLocations,
+  findAllBusinessPhones,
+  getAllNames,
+  getAllBRatings,
+  stringify
+}

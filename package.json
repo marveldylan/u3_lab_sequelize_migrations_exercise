@@ -1,0 +1,14 @@
+{
+  "name": "migrations-exercise",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Andre Pato <anpato1994@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.5.1",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "faker": "^5.1.0"
+  }
+}

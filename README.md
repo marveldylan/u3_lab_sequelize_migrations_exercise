@@ -25,11 +25,11 @@ npm run test
 ### Step 2: Setting Up Our Database
 
 ```sh
-sequelize db:create
+npx sequelize-cli db:create
 ```
 
 ```sh
-sequelize db:migrate
+npx sequelize-cli db:migrate
 ```
 
 ```sh

@@ -13,11 +13,11 @@ module.exports = (sequelize, DataTypes) => {
   }
   Business.init(
     {
-      businessName: {
+      name: {
         type: DataTypes.STRING,
         allowNull: false
       },
-      phoneNumber: {
+      phoneNmber: {
         type: DataTypes.STRING,
         allowNull: false
       },

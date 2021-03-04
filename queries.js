@@ -35,7 +35,7 @@ const findAllLocations = async () => {
 
 const findAllBusinessPhones = async () => {
   try {
-    const phoneNums = await Business.findAll({ attributes: ['phone_number'] })
+    const phoneNums = await Business.findAll({ attributes: ['phoneNumber'] })
     stringify(phoneNums)
     return true
   } catch (error) {

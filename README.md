@@ -1,5 +1,7 @@
 # Sequelize Migrations Exercise
 
+![](https://lowres.cartooncollections.com/birds-migratory_birds-migration-migrated-snowing-animals-CX903742_low.jpg)
+
 ## Objectives
 
 - Practice running migrations
@@ -25,11 +27,11 @@ npm run test
 ### Step 2: Setting Up Our Database
 
 ```sh
-npx sequelize-cli db:create
+sequelize db:create
 ```
 
 ```sh
-npx sequelize-cli db:migrate
+sequelize db:migrate
 ```
 
 ```sh
@@ -50,10 +52,18 @@ All operations need to be completed in order! You'll be creating migrations for 
 
 **If you've completed steps 1 and 2, at this point you can run the provided seed files, `sequelize db:seed:all`.**
 
-3. The `businesses` table `phoneNumber` column is cased incorrectly, columns and tables should be lowercased and snake cased, create a migration to rename the column name. Once the migration is successful, you'll need to make sure the `Business` model `phoneNumber` field matches this. Hint:Use the `field` key in the column definition for the model. The `Location` model may be helpful here.
+3. The `businesses` table `phoneNmber` column is spelled incorrectly, the column should be `phoneNumber`, create a migration to rename the column name. Once the migration is successful, you'll need to make sure to update the `Business` model.
 
 4. The `businesses` table has another problem, the `businessName` column is redundant, rename this field to just `name`. Run your migration and make the necessary modifications in the `Business` model. Remember the `businessName` key should reference the new `name` column.
+
+At this point you should have `4` passing tests
 
 ### Bonus
 
 The `businesses` rating column has a huge issue, someone messed up and make it `STRING` type, ideally it should be an `INTEGER` type. Create and run a migration to fix this. You'll also need to fix the field in the model itself to reflect the new datatype. Pay very close attention to the error message, it's there to help you! HINT: You'll need use a raw `SQL` command for the field type in the migration.
+
+## Resources
+
+- [Sequelize Migrations](https://sequelize.org/master/manual/migrations.html)
+- [Sequelize Queryinterface](https://sequelize.org/master/class/lib/dialects/abstract/query-interface.js~QueryInterface.html)
+- [Sequelize Migrations Lesson](https://github.com/SEI-R-1-25/u3_lesson_sequelize_migrations)

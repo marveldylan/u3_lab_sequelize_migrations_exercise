@@ -35,7 +35,7 @@ sequelize db:migrate
 ```
 
 ```sh
-psql sequelize_migrations_development
+psql sequelize_migrations_lab_development
 
 \dt
 ```

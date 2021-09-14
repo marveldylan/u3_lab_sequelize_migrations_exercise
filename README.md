@@ -58,10 +58,6 @@ All operations need to be completed in order! You'll be creating migrations for 
 
 At this point you should have `4` passing tests
 
-### Bonus
-
-The `businesses` rating column has a huge issue, someone messed up and make it `STRING` type, ideally it should be an `INTEGER` type. Create and run a migration to fix this. You'll also need to fix the field in the model itself to reflect the new datatype. Pay very close attention to the error message, it's there to help you! HINT: You'll need use a raw `SQL` command for the field type in the migration.
-
 ## Resources
 
 - [Sequelize Migrations](https://sequelize.org/master/manual/migrations.html)

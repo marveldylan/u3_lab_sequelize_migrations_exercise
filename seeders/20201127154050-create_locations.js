@@ -1,9 +1,9 @@
 'use strict'
-const faker = require('faker')
+const falso = require('@ngneat/falso')
 const locs = [...Array(10)].map(() => ({
-  city_name: faker.address.city(),
-  zipcode: faker.address.zipCode(),
-  population: faker.random.number({ min: 30000, max: 20000000 })
+  city_name: falso.randCity(),
+  zipcode: falso.randZipCode(),
+  population: falso.randNumber({ min: 30000, max: 20000000 })
 }))
 module.exports = {
   up: async (queryInterface, Sequelize) => {

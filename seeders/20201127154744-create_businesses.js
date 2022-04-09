@@ -1,9 +1,9 @@
 'use strict'
-const faker = require('faker')
+const falso = require('@ngneat/falso')
 const businesses = [...Array(10)].map(() => ({
-  businessName: faker.company.companyName(),
-  phoneNmber: faker.phone.phoneNumber(),
-  rating: faker.random.number({ min: 0, max: 100 })
+  businessName: falso.randCompanyName(),
+  phoneNmber: falso.randPhoneNumber({ countryCode: 'US' }),
+  rating: falso.randNumber({ min: 0, max: 100 })
 }))
 module.exports = {
   up: async (queryInterface, Sequelize) => {
